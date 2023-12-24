@@ -4,9 +4,17 @@ import (
 	"fmt"
 	"github.com/woozie-10/students-rest-api/config"
 	"github.com/woozie-10/students-rest-api/database"
+	_ "github.com/woozie-10/students-rest-api/docs"
 	"github.com/woozie-10/students-rest-api/router"
 	"log"
 )
+
+// @title Students REST API
+// @version 1.0
+// @description This is a simple REST API project that manages student information in a MongoDB database using the Go programming language and the Gin web framework.
+// @host localhost:8081
+// @BasePath /
+// @schemes http
 
 func main() {
 

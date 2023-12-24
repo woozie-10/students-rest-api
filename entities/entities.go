@@ -8,3 +8,11 @@ type Student struct {
 	Course    string `json:"course"`
 	Specialty string `json:"specialty"`
 }
+
+type ErrorResponse struct {
+	Error string `json:"error"`
+}
+
+type Response struct {
+	Result string `json:"result"`
+}

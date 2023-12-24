@@ -6,3 +6,6 @@ run:
 
 test:
 	go test -v ./tests
+
+swag:
+	swag init -g cmd/main.go -o docs

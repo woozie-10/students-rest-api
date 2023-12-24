@@ -1,0 +1,257 @@
+basePath: /
+definitions:
+  entities.ErrorResponse:
+    properties:
+      error:
+        type: string
+    type: object
+  entities.Response:
+    properties:
+      result:
+        type: string
+    type: object
+  entities.Student:
+    properties:
+      course:
+        type: string
+      firstname:
+        type: string
+      group:
+        type: string
+      lastname:
+        type: string
+      specialty:
+        type: string
+      username:
+        type: string
+    type: object
+host: localhost:8081
+info:
+  contact: {}
+  description: This is a simple REST API project that manages student information
+    in a MongoDB database using the Go programming language and the Gin web framework.
+  title: Students REST API
+  version: "1.0"
+paths:
+  /students:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a list of students from the database
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of students
+          schema:
+            items:
+              $ref: '#/definitions/entities.Student'
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/entities.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/entities.ErrorResponse'
+      summary: Get students
+      tags:
+      - students
+    post:
+      consumes:
+      - application/json
+      description: Add a new student to the database
+      parameters:
+      - description: Student object to be added
+        in: body
+        name: student
+        required: true
+        schema:
+          $ref: '#/definitions/entities.Student'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Student has been added
+          schema:
+            $ref: '#/definitions/entities.Response'
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/entities.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/entities.ErrorResponse'
+      summary: Add a new student
+      tags:
+      - students
+  /students/{username}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a student from the database by username
+      parameters:
+      - description: Username of the student to be deleted
+        in: path
+        name: username
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Student has been deleted
+          schema:
+            $ref: '#/definitions/entities.Response'
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/entities.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/entities.ErrorResponse'
+      summary: Delete a student by username
+      tags:
+      - students
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a student from the database by username
+      parameters:
+      - description: Username of the student to be retrieved
+        in: path
+        name: username
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Student information
+          schema:
+            $ref: '#/definitions/entities.Student'
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/entities.ErrorResponse'
+        "404":
+          description: Student not found
+          schema:
+            $ref: '#/definitions/entities.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/entities.ErrorResponse'
+      summary: Get a student by username
+      tags:
+      - students
+    put:
+      consumes:
+      - application/json
+      description: Update an existing student in the database
+      parameters:
+      - description: Username of the student to be updated
+        in: path
+        name: username
+        required: true
+        type: string
+      - description: Updated student object
+        in: body
+        name: student
+        required: true
+        schema:
+          $ref: '#/definitions/entities.Student'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Student has been updated
+          schema:
+            $ref: '#/definitions/entities.Response'
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/entities.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/entities.ErrorResponse'
+      summary: Update a student
+      tags:
+      - students
+  /students/course/{course}:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a list of students from the database by course
+      parameters:
+      - description: Course of the students to be retrieved
+        in: path
+        name: course
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of students
+          schema:
+            items:
+              $ref: '#/definitions/entities.Student'
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/entities.ErrorResponse'
+        "404":
+          description: Course not found
+          schema:
+            $ref: '#/definitions/entities.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/entities.ErrorResponse'
+      summary: Get students by course
+      tags:
+      - students
+  /students/group/{group}:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a list of students from the database by group
+      parameters:
+      - description: Group of the students to be retrieved
+        in: path
+        name: group
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of students
+          schema:
+            items:
+              $ref: '#/definitions/entities.Student'
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/entities.ErrorResponse'
+        "404":
+          description: Group not found
+          schema:
+            $ref: '#/definitions/entities.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/entities.ErrorResponse'
+      summary: Get students by group
+      tags:
+      - students
+schemes:
+- http
+swagger: "2.0"

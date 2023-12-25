@@ -8,6 +8,7 @@ This is a simple REST API project that manages student information in a MongoDB 
 - [Gin](https://github.com/gin-gonic/gin)
 - [MongoDB](https://www.mongodb.com/)
 - [Docker](https://www.docker.com/)
+- [Swagger](https://swagger.io/)
 - [Resty](https://github.com/go-resty/resty)
 - [Viper](https://github.com/spf13/viper)
 
@@ -21,6 +22,7 @@ The project is organized into the following main components:
 - `entities`: Defines the data model for the `Student` entitie.
 - `handlers`: Implements the HTTP request handlers for CRUD operations on student data.
 - `database`: Manages the MongoDB database connection.
+- `docs`: Сontains Swagger documentation configuration files for the web application.
 - `tests`: Responsible for writing and running test cases to ensure the correctness and reliability of application.
 
 ## Launching the Application
@@ -65,3 +67,14 @@ To run tests in a project, follow these steps:
 ## Usage
 
 You can use tools like [Postman](https://www.postman.com/) or `curl` to interact with the API endpoints.
+
+# Swagger UI
+
+How to Generate Swagger Documentation:
+
+1. **Launch the application**
+2. **You can access the Swagger UI by running your application and visiting the Swagger UI endpoint:**
+   ```shell
+   localhost:8081/swagger/index.html
+   ```
+   This provides an interactive interface for exploring and testing API endpoints.

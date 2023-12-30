@@ -46,7 +46,7 @@ The server should start, and you can access the API at http://localhost:8081.
 - GET /students/group/:group: Retrieve a list of students belonging to a specific group.
 - GET /students/course/:course: Retrieve a list of students enrolled in a specific course.
 - POST /students: Add a new student to the system.
-- PUT /students/:username: Update information for a specific student identified by their username.
+- PATCH /students/:username: Update information for a specific student identified by their username.
 - DELETE /students/:username: Delete a student record based on their username.
 
 # Running Tests in a project

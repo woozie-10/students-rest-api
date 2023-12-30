@@ -3,11 +3,12 @@ package handlers
 import (
 	"context"
 	"encoding/json"
+	"net/http"
+
 	"github.com/woozie-10/students-rest-api/database"
 	"github.com/woozie-10/students-rest-api/entities"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
@@ -23,7 +24,7 @@ import (
 // @Success 200 {object} entities.Response "Student has been updated"
 // @Failure 400 {object} entities.ErrorResponse "Bad request"
 // @Failure 500 {object} entities.ErrorResponse "Internal server error"
-// @Router /students/{username} [put]
+// @Router /students/{username} [patch]
 func UpdateStudentHandler(c *gin.Context) {
 	var newStudent entities.Student
 	if err := json.NewDecoder(c.Request.Body).Decode(&newStudent); err != nil {

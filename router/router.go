@@ -3,7 +3,7 @@ package router
 import (
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
-	"github.com/swaggo/gin-swagger"
+	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/woozie-10/students-rest-api/handlers"
 )
 
@@ -24,7 +24,7 @@ func RegisterStudentRoutes() {
 	studentGroup.GET("/course/:course", handlers.GetStudentsByCourseHandler)
 
 	studentGroup.POST("", handlers.AddStudentHandler)
-	studentGroup.PUT("/:username", handlers.UpdateStudentHandler)
+	studentGroup.PATCH("/:username", handlers.UpdateStudentHandler)
 
 	studentGroup.DELETE("/:username", handlers.DeleteStudentByUsernameHandler)
 }

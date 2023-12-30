@@ -8,7 +8,7 @@ import (
 
 func TestUpdateStudent(t *testing.T) {
 	client := resty.New()
-	resp, err := client.R().Put("http://localhost:8081/students/username")
+	resp, err := client.R().Patch("http://localhost:8081/students/username")
 	if err != nil {
 		t.Fatalf("Error sending request: %v", err)
 	}

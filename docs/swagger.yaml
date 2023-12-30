@@ -148,7 +148,7 @@ paths:
       summary: Get a student by username
       tags:
       - students
-    put:
+    patch:
       consumes:
       - application/json
       description: Update an existing student in the database
